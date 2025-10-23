@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduFun — Learn & Play</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="loading-screen" aria-hidden="true">
+    <div class="loader-card">
+      <div class="loader-logo"><i class="fas fa-graduation-cap"></i></div>
+      <div class="spinner"></div>
+      <p class="loading-text">Preparing EduFun...</p>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar" aria-hidden="true">
+    <div class="sidebar-header">
+      <div class="sidebar-logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>EduFun</span>
+      </div>
+      <button id="close-nav" class="close-nav" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="nav">
+      <a class="nav-link" data-page="dashboard">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+      </a>
+      <a class="nav-link" data-page="profile">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+      <a class="nav-link" data-page="settings">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+      <a class="nav-link" data-page="login">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </a>
+    </nav>
+  </aside>
+
+  <main id="main-content" class="app-container">
+
+    <!-- Login and Register Pages remain the same -->
+    <section id="login-page" class="page">
+      <div class="auth-container">
+        <div class="auth-card">
+          <div class="auth-header">
+            <div class="auth-logo">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h1>Welcome Back</h1>
+            <p class="subtitle">Login to continue your learning journey</p>
+          </div>
+
+          <form class="auth-form" id="login-form">
+            <div class="form-group">
+              <label for="login-email">Email Address</label>
+              <div class="input-wrapper">
+                <i class="fas fa-envelope"></i>
+                <input id="login-email" type="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <div class="input-wrapper">
+                <i class="fas fa-lock"></i>
+                <input id="login-password" type="password" placeholder="Enter your password" required />
+                <button type="button" class="toggle-pw" aria-label="toggle password">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" id="login-button" class="btn btn-primary btn-block">
+              <span>Sign In</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </form>
+
+          <div class="auth-footer">
+            <p>Don't have an account? <a id="go-register" href="#">Create one</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="register-page" class="page">
+      <div class="auth-container">
+        <div class="auth-card">
+          <div class="auth-header">
+            <div class="auth-logo">
+              <i class="fas fa-user-plus"></i>
+            </div>
+            <h1>Create Account</h1>
+            <p class="subtitle">Join EduFun to track your progress</p>
+          </div>
+
+          <form class="auth-form" id="register-form">
+            <div class="form-group">
+              <label for="reg-email">Email Address</label>
+              <div class="input-wrapper">
+                <i class="fas fa-envelope"></i>
+                <input id="reg-email" type="email" placeholder="your@email.com" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-username">Username</label>
+              <div class="input-wrapper">
+                <i class="fas fa-user"></i>
+                <input id="reg-username" type="text" placeholder="Choose a username" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-gender">Gender</label>
+              <div class="input-wrapper">
+                <i class="fas fa-venus-mars"></i>
+                <select id="reg-gender" required>
+                  <option value="">Select gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="reg-password">Password</label>
+              <div class="input-wrapper">
+                <i class="fas fa-lock"></i>
+                <input id="reg-password" type="password" placeholder="Create a strong password" required />
+                <button type="button" class="toggle-pw" aria-label="toggle password">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="button-group">
+              <button type="button" id="back-button" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back</span>
+              </button>
+              <button type="submit" id="register-button" class="btn btn-primary">
+                <span>Register</span>
+                <i class="fas fa-check"></i>
+              </button>
+            </div>
+          </form>
+
+          <div class="auth-footer">
+            <p>Already have an account? <a id="go-login" href="#">Sign in</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard, Game, and Profile Pages remain the same -->
+    <section id="dashboard-page" class="page">
+      <header class="app-header">
+        <button class="icon-btn open-nav" aria-label="open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="header-content">
+          <h2>Game Dashboard</h2>
+          <p class="header-subtitle">Choose your challenge</p>
+        </div>
+        <button id="profile-btn" class="icon-btn profile-btn">
+          <i class="fas fa-user-circle"></i>
+        </button>
+      </header>
+
+      <div class="games-grid">
+        <article class="game-card">
+          <div class="game-icon math-icon">
+            <i class="fas fa-calculator"></i>
+          </div>
+          <div class="game-content">
+            <h3>Math Logic</h3>
+            <p>Test your calculation skills</p>
+          </div>
+          <button class="btn btn-play play-game-btn" data-game="math">
+            <span>Play Now</span>
+            <i class="fas fa-play"></i>
+          </button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon puzzle-icon">
+            <i class="fas fa-puzzle-piece"></i>
+          </div>
+          <div class="game-content">
+            <h3>Puzzles</h3>
+            <p>Solve tricky brain teasers</p>
+          </div>
+          <button class="btn btn-play play-game-btn" data-game="puzzles">
+            <span>Play Now</span>
+            <i class="fas fa-play"></i>
+          </button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon spelling-icon">
+            <i class="fas fa-spell-check"></i>
+          </div>
+          <div class="game-content">
+            <h3>Spelling</h3>
+            <p>Master correct spelling</p>
+          </div>
+          <button class="btn btn-play play-game-btn" data-game="spelling">
+            <span>Play Now</span>
+            <i class="fas fa-play"></i>
+          </button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon science-icon">
+            <i class="fas fa-flask"></i>
+          </div>
+          <div class="game-content">
+            <h3>Science</h3>
+            <p>Explore scientific concepts</p>
+          </div>
+          <button class="btn btn-play play-game-btn" data-game="science">
+            <span>Play Now</span>
+            <i class="fas fa-play"></i>
+          </button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon english-icon">
+            <i class="fas fa-book-open"></i>
+          </div>
+          <div class="game-content">
+            <h3>English Grammar</h3>
+            <p>Improve grammar skills</p>
+          </div>
+          <button class="btn btn-play play-game-btn" data-game="english">
+            <span>Play Now</span>
+            <i class="fas fa-play"></i>
+          </button>
+        </article>
+
+        <article class="game-card">
+          <div class="game-icon civil-icon">
+            <i class="fas fa-landmark"></i>
+          </div>
+          <div class="game-content">
+            <h3>Civil Service Exam</h3>
+            <p>Prepare for government exams</p>
+          </div>
+          <button class="btn btn-play play-game-btn" data-game="civilservice">
+            <span>Play Now</span>
+            <i class="fas fa-play"></i>
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <section id="game-page" class="page">
+      <header class="app-header game-header">
+        <button id="back-to-dashboard" class="icon-btn">
+          <i class="fas fa-arrow-left"></i>
+        </button>
+        <div class="header-content">
+          <h2 id="game-title">Game</h2>
+          <p class="header-subtitle" id="game-subtitle">Question</p>
+        </div>
+        <div class="game-stats">
+          <div id="mistakes-counter" class="game-stat-item">
+            <i class="fas fa-times-circle"></i>
+            <span>0/5</span>
+          </div>
+          <div id="question-counter" class="game-stat-item">
+            <i class="fas fa-question-circle"></i>
+            <span>1/205</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="game-container">
+        <div class="question-card">
+          <p id="question-text" class="question-text">Question appears here</p>
+          <button id="hint-btn" class="btn-hint">
+            <i class="fas fa-lightbulb"></i>
+            <span>Show Hint</span>
+          </button>
+          <div id="hint-container" class="hint-container hidden"></div>
+        </div>
+
+        <div id="answers-container" class="answers-grid"></div>
+
+        <div id="feedback-container" class="feedback-container"></div>
+
+        <div class="game-actions">
+          <button id="next-question-btn" class="btn btn-primary btn-next">
+            <span>Next Question</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section id="profile-page" class="page">
+      <header class="app-header">
+        <button class="icon-btn open-nav" aria-label="open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="header-content">
+          <h2>My Profile</h2>
+          <p class="header-subtitle">Your account & stats</p>
+        </div>
+      </header>
+
+      <div class="profile-container">
+        <div class="profile-card">
+          <div class="profile-avatar" id="profile-avatar-display">
+            <i class="fas fa-user-circle"></i>
+          </div>
+          <h3 id="profile-username-display">Username</h3>
+          <p id="profile-email-display" class="profile-email">email@example.com</p>
+        </div>
+
+        <div class="info-card">
+          <h4><i class="fas fa-paint-brush"></i> Customize Avatar</h4>
+          <div class="avatar-selector">
+            <div id="avatar-options" class="avatar-options-grid"></div>
+            <button id="randomize-avatar-btn" class="btn btn-secondary">
+              <i class="fas fa-random"></i>
+              <span>Randomize</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h4><i class="fas fa-info-circle"></i> Account Details</h4>
+          <div class="info-grid">
+            <div class="info-item">
+              <span class="info-label">Username</span>
+              <strong id="profile-username">—</strong>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Email</span>
+              <strong id="profile-email">—</strong>
+            </div>
+            <div class="info-item">
+              <span class="info-label">Gender</span>
+              <strong id="profile-gender">—</strong>
+            </div>
+          </div>
+
+          <div class="profile-actions">
+            <button id="logout-btn" class="btn btn-outline btn-block">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW/UPDATED SETTINGS PAGE -->
+    <section id="settings-page" class="page">
+      <header class="app-header">
+        <button class="icon-btn open-nav" aria-label="open menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="header-content">
+          <h2>Settings</h2>
+          <p class="header-subtitle">Configure your preferences</p>
+        </div>
+      </header>
+      <div class="settings-container">
+
+        <div class="info-card">
+          <h4><i class="fas fa-volume-up"></i> Sound & Music</h4>
+          <div class="setting-item">
+            <label for="music-toggle" class="setting-label">
+              <i class="fas fa-music"></i> Background Music
+            </label>
+            <label class="switch">
+              <input type="checkbox" id="music-toggle">
+              <span class="slider round"></span>
+            </label>
+          </div>
+          <div class="setting-item">
+            <label for="sfx-volume" class="setting-label">
+              <i class="fas fa-bell"></i> Sound Effects Volume
+            </label>
+            <input type="range" id="sfx-volume" min="0" max="1" step="0.1" class="volume-slider">
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h4><i class="fas fa-palette"></i> Theme / UI Mode</h4>
+          <div class="setting-item">
+            <div class="theme-options">
+              <button class="theme-option" data-theme="light">
+                <div class="theme-preview theme-light"></div>
+                <span>Light</span>
+              </button>
+              <button class="theme-option" data-theme="pink">
+                <div class="theme-preview theme-pink"></div>
+                <span>Pink</span>
+              </button>
+              <button class="theme-option" data-theme="light-yellow">
+                <div class="theme-preview theme-light-yellow"></div>
+                <span>Yellow</span>
+              </button>
+            </div>
+            <p class="setting-note">Custom colors coming soon!</p>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h4><i class="fas fa-database"></i> Data Management</h4>
+          <div class="setting-item">
+            <p class="setting-note">This will delete all your account details and progress. This action cannot be undone.</p>
+            <button id="reset-progress-btn" class="btn btn-danger btn-block">
+              <i class="fas fa-trash"></i>
+              <span>Reset Progress</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <h4><i class="fas fa-shield-alt"></i> Legal Information</h4>
+          <div class="policy-item">
+            <div class="policy-header" id="toggle-privacy">
+              <span><i class="fas fa-file-contract"></i> Privacy Policy</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="policy-content" id="privacy-content">
+              <p>We respect your privacy. EduFun only collects basic information like your username, email, and game progress—this data is stored safely on your device.</p>
+              <p>We don’t share, sell, or send your information to anyone. You can delete your data anytime using the Reset Progress option.</p>
+              <p>If you have questions, contact us at edufun.app@gmail.com.</p>
+              <em>Last updated: October 2025</em>
+            </div>
+          </div>
+          <div class="policy-item">
+            <div class="policy-header" id="toggle-terms">
+              <span><i class="fas fa-file-alt"></i> Terms of Use</span>
+              <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="policy-content" id="terms-content">
+              <p>By using EduFun, you agree to play fairly and use the app responsibly. All game content, designs, and materials belong to EduFun and are made for learning and fun only.</p>
+              <p>Please don’t copy, modify, or misuse the app or its content. We may update the app or these terms anytime to improve your experience.</p>
+              <p>If you don’t agree with these terms, please stop using the app.</p>
+              <em>Last updated: October 2025</em>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div id="notification-container" class="notification-container"></div>
+
+  <div id="action-loading" class="loading-overlay hidden">
+    <div class="loader-card">
+      <div class="spinner"></div>
+      <p class="loading-text" id="loading-message">Please wait...</p>
+    </div>
+  </div>
+
+  <script type="module" src="data.js"></script>
+  <script type="module" src="app.js"></script>
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js").catch(() => {});
+    }
+  </script>
+</body>
+</html>

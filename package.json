@@ -1,0 +1,17 @@
+{
+  "name": "edufun",
+  "version": "1.0.0",
+  "description": "Educational gaming platform",
+  "main": "index.html",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  },
+  "keywords": ["education", "games", "learning"],
+  "author": "",
+  "license": "MIT"
+}
+
